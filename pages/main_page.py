@@ -2,6 +2,7 @@ import time
 from selenium.webdriver.common.by import By
 
 from base.base_class import Base
+from .page_urls import PageUrls
 
 
 class MainPageLocators:
@@ -20,6 +21,13 @@ class MainPageLocators:
     LOCATOR_AUTH_PHONE_FIELD = (By.NAME, "phone")
     LOCATOR_AUTH_PASS_FIELD = (By.NAME, "password")
     LOCATOR_AUTH_FORM_BUTTON = (By.CLASS_NAME, "full-width-button")
+
+    LOCATOR_NAVBAR_LIST = (
+        By.XPATH,
+        "//*[@class='portal-nav']/ul[@class='pn-list']/li[@class='pn-item']",
+    )
+
+    # LOCATOR_NAVBAR_LINK = (By.)
 
 
 class MainPage(Base):
@@ -67,6 +75,10 @@ class MainPage(Base):
         print("Получение локатора кнопки Submit формы аутентификации")
         return self.get_element(20, MainPageLocators.LOCATOR_AUTH_FORM_BUTTON)
 
+    def get_portal_nav_list(self):
+        print("Получение навигационного меню портала")
+        return self.get_elements(20, MainPageLocators.LOCATOR_NAVBAR_LIST)
+
     # Действия
 
     def click_login_button(self):
@@ -104,8 +116,7 @@ class MainPage(Base):
     # Методы
 
     def go_to_base_url(self):
-        self.driver.get(MainPageLocators.URL_BASE_PAGE)
-        self.driver.maximize_window()
+        self.driver.get(PageUrls.URL_BASE_PAGE)
         time.sleep(5)
 
     def go_to_main_menu(self):

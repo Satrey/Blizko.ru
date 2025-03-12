@@ -1,4 +1,5 @@
 from pages.main_page import MainPage
+from pages.page_urls import PageUrls
 
 """ Тест на открытие главной страницы """
 
@@ -7,6 +8,7 @@ def test_open_main_page(driver):
     mp = MainPage(driver)
     # Переход на главную страницу
     mp.go_to_base_url()
+    mp.assert_url(PageUrls.URL_BASE_PAGE)
 
 
 """ Тест аутентификации пользователя """

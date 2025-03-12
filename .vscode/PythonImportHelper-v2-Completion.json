@@ -67,6 +67,14 @@
         "documentation": {}
     },
     {
+        "label": "PageUrls",
+        "importPath": "pages.page_urls",
+        "description": "pages.page_urls",
+        "isExtraImport": true,
+        "detail": "pages.page_urls",
+        "documentation": {}
+    },
+    {
         "label": "pytest",
         "kind": 6,
         "isExtraImport": true,
@@ -120,11 +128,20 @@
         "documentation": {}
     },
     {
+        "label": "PageUrls",
+        "kind": 6,
+        "importPath": "pages.page_urls",
+        "description": "pages.page_urls",
+        "peekOfCode": "class PageUrls:\n    \"\"\"Класс содержит url страниц интернет магазина\"\"\"\n    # Главная страница магазина\n    URL_BASE_PAGE = \"https://tyumen.blizko.ru/\"\n    # URL Страниц магазина по категориям\n    URL_DIALS_PAGE = \"https://tyumen.blizko.ru/deals\"\n    URL_CONSTRUCTION_PAGE = \"https://tyumen.blizko.ru/predl/construction\"\n    URL_TEHNIKA_PAGE = \"https://tyumen.blizko.ru/predl/promgood/tehnika\"\n    URL_INTERIER_PAGE = \"https://tyumen.blizko.ru/predl/promgood/interier\"\n    URL_TTRANSPORT_PAGE = \"https://tyumen.blizko.ru/predl/transport\"",
+        "detail": "pages.page_urls",
+        "documentation": {}
+    },
+    {
         "label": "test_open_main_page",
         "kind": 2,
         "importPath": "tests.test_open_main_page",
         "description": "tests.test_open_main_page",
-        "peekOfCode": "def test_open_main_page(driver):\n    mp = MainPage(driver)\n    # Переход на главную страницу\n    mp.go_to_base_url()\n\"\"\" Тест аутентификации пользователя \"\"\"\ndef test_user_autentification(driver):\n    mp = MainPage(driver)\n    # Переход на главную страницу\n    mp.go_to_base_url()\n    # Аутентификация пользователя",
+        "peekOfCode": "def test_open_main_page(driver):\n    mp = MainPage(driver)\n    # Переход на главную страницу\n    mp.go_to_base_url()\n    mp.assert_url(PageUrls.URL_BASE_PAGE)\n\"\"\" Тест аутентификации пользователя \"\"\"\ndef test_user_autentification(driver):\n    mp = MainPage(driver)\n    # Переход на главную страницу\n    mp.go_to_base_url()",
         "detail": "tests.test_open_main_page",
         "documentation": {}
     },
