@@ -102,11 +102,11 @@
         "documentation": {}
     },
     {
-        "label": "BasePageLocators",
+        "label": "MainPageLocators",
         "kind": 6,
         "importPath": "pages.main_page",
         "description": "pages.main_page",
-        "peekOfCode": "class BasePageLocators:\n    \"\"\"Класс содержит локаторы применяемые на главной странице\"\"\"\n    URL_BASE_PAGE = \"https://tyumen.blizko.ru/\"\n    LOCATOR_AUTH_BUTTON = (By.XPATH, '//*[@id=\"open-auth-popup\"]')\n    LOCATOR_MENU_BUTTON = (By.XPATH, \"/html/body/div[1]/div[2]/div/div[2]/button\")\n    LOCATOR_PUR_BUTTON = (By.XPATH, '//ul[@class=\"header-navigation-links\"]/li[0]')\n    LOCATOR_FAVORITE_BUTTON = (By.XPATH, '//ul[@class=\"header-navigation-links\"]/li[1]')\n    LOCATOR_CART_BUTTON = (By.XPATH, '//ul[@class=\"header-navigation-links\"]/li[3]')\n    LOCATOR_SEARCH_FIELD = (By.XPATH, '//input[@name=\"q\"]')\n    LOCATOR_SEARSH_BUTTON = (By.XPATH, \"//button[@class='header-search-form__submit']\")",
+        "peekOfCode": "class MainPageLocators:\n    \"\"\"Класс содержит локаторы применяемые на главной странице\"\"\"\n    LOCATOR_AUTH_BUTTON = (By.XPATH, '//*[@id=\"open-auth-popup\"]')\n    LOCATOR_MENU_BUTTON = (By.XPATH, \"/html/body/div[1]/div[2]/div/div[2]/button\")\n    LOCATOR_PUR_BUTTON = (By.XPATH, '//ul[@class=\"header-navigation-links\"]/li[0]')\n    LOCATOR_FAVORITE_BUTTON = (By.XPATH, '//ul[@class=\"header-navigation-links\"]/li[1]')\n    LOCATOR_CART_BUTTON = (By.XPATH, '//ul[@class=\"header-navigation-links\"]/li[3]')\n    LOCATOR_SEARCH_FIELD = (By.XPATH, '//input[@name=\"q\"]')\n    LOCATOR_SEARSH_BUTTON = (By.XPATH, \"//button[@class='header-search-form__submit']\")\n    LOCATOR_AUTH_PHONE_FIELD = (By.NAME, \"phone\")",
         "detail": "pages.main_page",
         "documentation": {}
     },
@@ -115,7 +115,7 @@
         "kind": 6,
         "importPath": "pages.main_page",
         "description": "pages.main_page",
-        "peekOfCode": "class MainPage(Base):\n    \"\"\"Класс главной страницы\"\"\"\n    # Геттеры\n    def get_login_button(self):\n        print(\"Получение локатора кнопки Войти\")\n        return self.get_element(20, BasePageLocators.LOCATOR_AUTH_BUTTON)\n    def get_menu_button(self):\n        print(\"Получение локатора кнопки Меню\")\n        return self.get_element(20, BasePageLocators.LOCATOR_MENU_BUTTON)\n    def get_cart_button(self):",
+        "peekOfCode": "class MainPage(Base):\n    \"\"\"Класс главной страницы\"\"\"\n    # Геттеры\n    def get_login_button(self):\n        print(\"Получение локатора кнопки Войти\")\n        return self.get_element(20, MainPageLocators.LOCATOR_AUTH_BUTTON)\n    def get_menu_button(self):\n        print(\"Получение локатора кнопки Меню\")\n        return self.get_element(20, MainPageLocators.LOCATOR_MENU_BUTTON)\n    def get_cart_button(self):",
         "detail": "pages.main_page",
         "documentation": {}
     },

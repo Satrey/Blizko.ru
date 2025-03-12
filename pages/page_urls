@@ -1,0 +1,2 @@
+class PageUrls:
+    URL_BASE_PAGE = "https://tyumen.blizko.ru/"

@@ -4,10 +4,8 @@ from selenium.webdriver.common.by import By
 from base.base_class import Base
 
 
-class BasePageLocators:
+class MainPageLocators:
     """Класс содержит локаторы применяемые на главной странице"""
-
-    URL_BASE_PAGE = "https://tyumen.blizko.ru/"
 
     LOCATOR_AUTH_BUTTON = (By.XPATH, '//*[@id="open-auth-popup"]')
 
@@ -31,43 +29,43 @@ class MainPage(Base):
 
     def get_login_button(self):
         print("Получение локатора кнопки Войти")
-        return self.get_element(20, BasePageLocators.LOCATOR_AUTH_BUTTON)
+        return self.get_element(20, MainPageLocators.LOCATOR_AUTH_BUTTON)
 
     def get_menu_button(self):
         print("Получение локатора кнопки Меню")
-        return self.get_element(20, BasePageLocators.LOCATOR_MENU_BUTTON)
+        return self.get_element(20, MainPageLocators.LOCATOR_MENU_BUTTON)
 
     def get_cart_button(self):
         print("Получение локатора кнопки Корзины")
-        return self.get_element(20, BasePageLocators.LOCATOR_CART_BUTTON)
+        return self.get_element(20, MainPageLocators.LOCATOR_CART_BUTTON)
 
     def get_puchases_button(self):
         print("Получение локатора кнопки Покупки")
-        return self.get_element(20, BasePageLocators.LOCATOR_PURCHASES_BUTTON)
+        return self.get_element(20, MainPageLocators.LOCATOR_PURCHASES_BUTTON)
 
     def get_favorite_button(self):
         print("Получение локатора кнопки Избранное")
-        return self.get_element(20, BasePageLocators.LOCATOR_FAVORITE_BUTTON)
+        return self.get_element(20, MainPageLocators.LOCATOR_FAVORITE_BUTTON)
 
     def get_search_field(self):
         print("Получение локатора поля Search")
-        return self.get_element(20, BasePageLocators.LOCATOR_SEARCH_FIELD)
+        return self.get_element(20, MainPageLocators.LOCATOR_SEARCH_FIELD)
 
     def get_searh_button(self):
         print("Получение локатора кнопки Search")
-        return self.get_element(20, BasePageLocators.LOCATOR_SEARSH_BUTTON)
+        return self.get_element(20, MainPageLocators.LOCATOR_SEARSH_BUTTON)
 
     def get_auth_phone_field(self):
         print("Получение локатора поля ввода Phone")
-        return self.get_element(20, BasePageLocators.LOCATOR_AUTH_PHONE_FIELD)
+        return self.get_element(20, MainPageLocators.LOCATOR_AUTH_PHONE_FIELD)
 
     def get_auth_pass_field(self):
         print("Получение локатора поля пароля")
-        return self.get_element(20, BasePageLocators.LOCATOR_AUTH_PASS_FIELD)
+        return self.get_element(20, MainPageLocators.LOCATOR_AUTH_PASS_FIELD)
 
     def get_auth_form_submit_button(self):
         print("Получение локатора кнопки Submit формы аутентификации")
-        return self.get_element(20, BasePageLocators.LOCATOR_AUTH_FORM_BUTTON)
+        return self.get_element(20, MainPageLocators.LOCATOR_AUTH_FORM_BUTTON)
 
     # Действия
 
@@ -106,7 +104,7 @@ class MainPage(Base):
     # Методы
 
     def go_to_base_url(self):
-        self.driver.get(BasePageLocators.URL_BASE_PAGE)
+        self.driver.get(MainPageLocators.URL_BASE_PAGE)
         self.driver.maximize_window()
         time.sleep(5)
 
