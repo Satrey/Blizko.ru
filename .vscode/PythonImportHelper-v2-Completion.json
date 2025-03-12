@@ -1,0 +1,176 @@
+[
+    {
+        "label": "datetime",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "datetime",
+        "description": "datetime",
+        "detail": "datetime",
+        "documentation": {}
+    },
+    {
+        "label": "os",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "os",
+        "description": "os",
+        "detail": "os",
+        "documentation": {}
+    },
+    {
+        "label": "WebDriverWait",
+        "importPath": "selenium.webdriver.support.wait",
+        "description": "selenium.webdriver.support.wait",
+        "isExtraImport": true,
+        "detail": "selenium.webdriver.support.wait",
+        "documentation": {}
+    },
+    {
+        "label": "expected_conditions",
+        "importPath": "selenium.webdriver.support",
+        "description": "selenium.webdriver.support",
+        "isExtraImport": true,
+        "detail": "selenium.webdriver.support",
+        "documentation": {}
+    },
+    {
+        "label": "time",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "time",
+        "description": "time",
+        "detail": "time",
+        "documentation": {}
+    },
+    {
+        "label": "By",
+        "importPath": "selenium.webdriver.common.by",
+        "description": "selenium.webdriver.common.by",
+        "isExtraImport": true,
+        "detail": "selenium.webdriver.common.by",
+        "documentation": {}
+    },
+    {
+        "label": "Base",
+        "importPath": "base.base_class",
+        "description": "base.base_class",
+        "isExtraImport": true,
+        "detail": "base.base_class",
+        "documentation": {}
+    },
+    {
+        "label": "MainPage",
+        "importPath": "pages.main_page",
+        "description": "pages.main_page",
+        "isExtraImport": true,
+        "detail": "pages.main_page",
+        "documentation": {}
+    },
+    {
+        "label": "pytest",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "pytest",
+        "description": "pytest",
+        "detail": "pytest",
+        "documentation": {}
+    },
+    {
+        "label": "webdriver",
+        "importPath": "selenium",
+        "description": "selenium",
+        "isExtraImport": true,
+        "detail": "selenium",
+        "documentation": {}
+    },
+    {
+        "label": "Base",
+        "kind": 6,
+        "importPath": "base.base_class",
+        "description": "base.base_class",
+        "peekOfCode": "class Base:\n    \"\"\"Базовый класс, который содержит универсальные методы\"\"\"\n    def __init__(self, driver):\n        self.driver = driver\n    \"\"\" Метод получает текущий URL \"\"\"\n    def get_current_url(self):\n        current_url = self.driver.current_url\n        print(f\"Текущий URL - {current_url}\")\n        return current_url\n    \"\"\" Метод получает елемент страницы по локатору \"\"\"",
+        "detail": "base.base_class",
+        "documentation": {}
+    },
+    {
+        "label": "BASE_DIR",
+        "kind": 5,
+        "importPath": "base.base_class",
+        "description": "base.base_class",
+        "peekOfCode": "BASE_DIR = \"/home/alex/VSCodeProjects/tyumen.blizko.ru/\"\nclass Base:\n    \"\"\"Базовый класс, который содержит универсальные методы\"\"\"\n    def __init__(self, driver):\n        self.driver = driver\n    \"\"\" Метод получает текущий URL \"\"\"\n    def get_current_url(self):\n        current_url = self.driver.current_url\n        print(f\"Текущий URL - {current_url}\")\n        return current_url",
+        "detail": "base.base_class",
+        "documentation": {}
+    },
+    {
+        "label": "BasePageLocators",
+        "kind": 6,
+        "importPath": "pages.main_page",
+        "description": "pages.main_page",
+        "peekOfCode": "class BasePageLocators:\n    \"\"\"Класс содержит локаторы применяемые на главной странице\"\"\"\n    URL_BASE_PAGE = \"https://tyumen.blizko.ru/\"\n    LOCATOR_AUTH_BUTTON = (By.XPATH, '//*[@id=\"open-auth-popup\"]')\n    LOCATOR_CART_BUTTON = (By.XPATH, '//ul[@class=\"header-navigation-links\"]/li[2]')\n    LOCATOR_MENU_BUTTON = (By.XPATH, \"/html/body/div[1]/div[2]/div/div[2]/button\")\n    LOCATOR_PUR_BUTTON = (By.XPATH, '//ul[@class=\"header-navigation-links\"]/li[0]')\n    LOCATOR_FAVORITE_BUTTON = (By.XPATH, '//ul[@class=\"header-navigation-links\"]/li[1]')\n    LOCATOR_SEARCH_FIELD = (By.XPATH, '//input[@name=\"q\"]')\n    LOCATOR_SEARSH_BUTTON = (By.CLASS_NAME, \"header-search-form__submit\")",
+        "detail": "pages.main_page",
+        "documentation": {}
+    },
+    {
+        "label": "MainPage",
+        "kind": 6,
+        "importPath": "pages.main_page",
+        "description": "pages.main_page",
+        "peekOfCode": "class MainPage(Base):\n    \"\"\"Класс главной страницы\"\"\"\n    # Геттеры\n    def get_login_button(self):\n        print(\"Получение локатора кнопки Войти\")\n        return self.get_element(20, BasePageLocators.LOCATOR_AUTH_BUTTON)\n    def get_menu_button(self):\n        print(\"Получение локатора кнопки Меню\")\n        return self.get_element(20, BasePageLocators.LOCATOR_MENU_BUTTON)\n    def get_cart_button(self):",
+        "detail": "pages.main_page",
+        "documentation": {}
+    },
+    {
+        "label": "test_open_main_page",
+        "kind": 2,
+        "importPath": "tests.test_open_main_page",
+        "description": "tests.test_open_main_page",
+        "peekOfCode": "def test_open_main_page(driver):\n    mp = MainPage(driver)\n    # Переход на главную страницу\n    mp.go_to_base_url()\n\"\"\" Тест аутентификации пользователя \"\"\"\ndef test_user_autentification(driver):\n    mp = MainPage(driver)\n    # Переход на главную страницу\n    mp.go_to_base_url()\n    # Аутентификация пользователя",
+        "detail": "tests.test_open_main_page",
+        "documentation": {}
+    },
+    {
+        "label": "test_user_autentification",
+        "kind": 2,
+        "importPath": "tests.test_open_main_page",
+        "description": "tests.test_open_main_page",
+        "peekOfCode": "def test_user_autentification(driver):\n    mp = MainPage(driver)\n    # Переход на главную страницу\n    mp.go_to_base_url()\n    # Аутентификация пользователя\n    mp.autentification()\n\"\"\" Тест кнопки главного меню \"\"\"\ndef test_main_menu(driver):\n    mp = MainPage(driver)\n    # Переход на главную страницу",
+        "detail": "tests.test_open_main_page",
+        "documentation": {}
+    },
+    {
+        "label": "test_main_menu",
+        "kind": 2,
+        "importPath": "tests.test_open_main_page",
+        "description": "tests.test_open_main_page",
+        "peekOfCode": "def test_main_menu(driver):\n    mp = MainPage(driver)\n    # Переход на главную страницу\n    mp.go_to_base_url()\n    # Переход на страницу главного меню\n    mp.go_to_main_menu()\n\"\"\" Тест кнопки карзины \"\"\"\ndef test_cart_button(driver):\n    mp = MainPage(driver)\n    # Переход на главную страницу",
+        "detail": "tests.test_open_main_page",
+        "documentation": {}
+    },
+    {
+        "label": "test_cart_button",
+        "kind": 2,
+        "importPath": "tests.test_open_main_page",
+        "description": "tests.test_open_main_page",
+        "peekOfCode": "def test_cart_button(driver):\n    mp = MainPage(driver)\n    # Переход на главную страницу\n    mp.go_to_base_url()\n    # Переход на страницу карзины\n    mp.go_to_cart()\n\"\"\" Тест поля пользовательского поиска \"\"\"\ndef test_search_field(driver):\n    mp = MainPage(driver)\n    # Переход на главную страницу",
+        "detail": "tests.test_open_main_page",
+        "documentation": {}
+    },
+    {
+        "label": "test_search_field",
+        "kind": 2,
+        "importPath": "tests.test_open_main_page",
+        "description": "tests.test_open_main_page",
+        "peekOfCode": "def test_search_field(driver):\n    mp = MainPage(driver)\n    # Переход на главную страницу\n    mp.go_to_base_url()\n    # Заполнение строки поиска\n    mp.send_search_text()\n# def test_buy_product(driver):\n#     mp = MainPage(driver)\n#     # Переход на главную страницу\n#     mp.go_to_base_url()",
+        "detail": "tests.test_open_main_page",
+        "documentation": {}
+    },
+    {
+        "label": "driver",
+        "kind": 2,
+        "importPath": "conftest",
+        "description": "conftest",
+        "peekOfCode": "def driver():\n    driver = webdriver.Chrome()\n    yield driver\n    driver.quit()",
+        "detail": "conftest",
+        "documentation": {}
+    }
+]
