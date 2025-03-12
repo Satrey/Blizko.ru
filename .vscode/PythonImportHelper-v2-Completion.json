@@ -142,7 +142,7 @@
         "kind": 2,
         "importPath": "tests.test_open_main_page",
         "description": "tests.test_open_main_page",
-        "peekOfCode": "def test_main_menu(driver):\n    mp = MainPage(driver)\n    # Переход на главную страницу\n    mp.go_to_base_url()\n    # Переход на страницу главного меню\n    mp.go_to_main_menu()\n\"\"\" Тест кнопки карзины \"\"\"\ndef test_cart_button(driver):\n    mp = MainPage(driver)\n    # Переход на главную страницу",
+        "peekOfCode": "def test_main_menu(driver):\n    mp = MainPage(driver)\n    # Переход на главную страницу\n    mp.go_to_base_url()\n    # Переход на страницу главного меню\n    mp.go_to_main_menu()\n\"\"\" Тест кнопки корзины \"\"\"\ndef test_cart_button(driver):\n    mp = MainPage(driver)\n    # Переход на главную страницу",
         "detail": "tests.test_open_main_page",
         "documentation": {}
     },
@@ -151,7 +151,7 @@
         "kind": 2,
         "importPath": "tests.test_open_main_page",
         "description": "tests.test_open_main_page",
-        "peekOfCode": "def test_cart_button(driver):\n    mp = MainPage(driver)\n    # Переход на главную страницу\n    mp.go_to_base_url()\n    # Переход на страницу карзины\n    mp.go_to_cart()\n\"\"\" Тест поля пользовательского поиска \"\"\"\ndef test_search_field(driver):\n    mp = MainPage(driver)\n    # Переход на главную страницу",
+        "peekOfCode": "def test_cart_button(driver):\n    mp = MainPage(driver)\n    # Переход на главную страницу\n    mp.go_to_base_url()\n    # Переход на страницу корзины\n    mp.go_to_cart()\n\"\"\" Тест поля пользовательского поиска \"\"\"\ndef test_search_field(driver):\n    mp = MainPage(driver)\n    # Переход на главную страницу",
         "detail": "tests.test_open_main_page",
         "documentation": {}
     },

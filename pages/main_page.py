@@ -37,15 +37,15 @@ class MainPage(Base):
         return self.get_element(20, BasePageLocators.LOCATOR_MENU_BUTTON)
 
     def get_cart_button(self):
-        print("Получение локатора кнопки Карзины")
+        print("Получение локатора кнопки Корзины")
         return self.get_element(20, BasePageLocators.LOCATOR_CART_BUTTON)
 
     def get_puchases_button(self):
-        print("Получение локатора кнопки Карзины")
+        print("Получение локатора кнопки Покупки")
         return self.get_element(20, BasePageLocators.LOCATOR_PURCHASES_BUTTON)
 
     def get_favorite_button(self):
-        print("Получение локатора кнопки Карзины")
+        print("Получение локатора кнопки Избранное")
         return self.get_element(20, BasePageLocators.LOCATOR_FAVORITE_BUTTON)
 
     def get_search_field(self):
@@ -76,7 +76,7 @@ class MainPage(Base):
 
     def click_cart_button(self):
         self.get_cart_button().click()
-        print("Клик на кнопке Карзины")
+        print("Клик на кнопке Корзины")
 
     def click_search_button(self):
         self.get_searh_button().submit()
