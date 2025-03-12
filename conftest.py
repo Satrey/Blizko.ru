@@ -4,6 +4,10 @@ from selenium import webdriver
 
 @pytest.fixture(scope="function")
 def driver():
-    driver = webdriver.Chrome()
+    options = webdriver.ChromeOptions()
+    options.add_argument("--start-maximized")
+    options.add_argument("--disable-notifications")
+
+    driver = webdriver.Chrome(options=options)
     yield driver
     driver.quit()
