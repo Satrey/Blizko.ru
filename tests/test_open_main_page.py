@@ -31,14 +31,14 @@ def test_main_menu(driver):
     mp.go_to_main_menu()
 
 
-""" Тест кнопки карзины """
+""" Тест кнопки корзины """
 
 
 def test_cart_button(driver):
     mp = MainPage(driver)
     # Переход на главную страницу
     mp.go_to_base_url()
-    # Переход на страницу карзины
+    # Переход на страницу корзины
     mp.go_to_cart()
 
 
