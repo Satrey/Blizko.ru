@@ -10,16 +10,17 @@ class BasePageLocators:
     URL_BASE_PAGE = "https://tyumen.blizko.ru/"
 
     LOCATOR_AUTH_BUTTON = (By.XPATH, '//*[@id="open-auth-popup"]')
-    LOCATOR_CART_BUTTON = (By.XPATH, '//ul[@class="header-navigation-links"]/li[2]')
 
     LOCATOR_MENU_BUTTON = (By.XPATH, "/html/body/div[1]/div[2]/div/div[2]/button")
     LOCATOR_PUR_BUTTON = (By.XPATH, '//ul[@class="header-navigation-links"]/li[0]')
     LOCATOR_FAVORITE_BUTTON = (By.XPATH, '//ul[@class="header-navigation-links"]/li[1]')
+    LOCATOR_CART_BUTTON = (By.XPATH, '//ul[@class="header-navigation-links"]/li[3]')
 
     LOCATOR_SEARCH_FIELD = (By.XPATH, '//input[@name="q"]')
-    LOCATOR_SEARSH_BUTTON = (By.CLASS_NAME, "header-search-form__submit")
+    LOCATOR_SEARSH_BUTTON = (By.XPATH, "//button[@class='header-search-form__submit']")
 
     LOCATOR_AUTH_PHONE_FIELD = (By.NAME, "phone")
+    LOCATOR_AUTH_PASS_FIELD = (By.NAME, "password")
     LOCATOR_AUTH_FORM_BUTTON = (By.CLASS_NAME, "full-width-button")
 
 
@@ -60,6 +61,10 @@ class MainPage(Base):
         print("Получение локатора поля ввода Phone")
         return self.get_element(20, BasePageLocators.LOCATOR_AUTH_PHONE_FIELD)
 
+    def get_auth_pass_field(self):
+        print("Получение локатора поля пароля")
+        return self.get_element(20, BasePageLocators.LOCATOR_AUTH_PASS_FIELD)
+
     def get_auth_form_submit_button(self):
         print("Получение локатора кнопки Submit формы аутентификации")
         return self.get_element(20, BasePageLocators.LOCATOR_AUTH_FORM_BUTTON)
@@ -90,7 +95,11 @@ class MainPage(Base):
         self.get_auth_phone_field().send_keys("satrey.mail@gmail.com")
         print("Ввод email адреса в форму аутентификации пользователя")
 
-    def click_auth_phone_submit_button(self):
+    def input_pass(self):
+        self.get_auth_pass_field().send_keys("Blizko")
+        print("Ввод пароля в форму аутентификации пользователя")
+
+    def click_auth_form_submit_button(self):
         self.get_auth_form_submit_button().submit()
         print("Клик на кнопке Submit формы аутентификации")
 
@@ -116,7 +125,9 @@ class MainPage(Base):
 
     def autentification(self):
         self.click_login_button()
-        time.sleep(10)
+        time.sleep(5)
         self.input_phone_number()
-        self.click_auth_phone_submit_button()
-        time.sleep(10)
+        time.sleep(5)
+        self.input_pass()
+        self.click_auth_form_submit_button()
+        time.sleep(5)

@@ -106,7 +106,7 @@
         "kind": 6,
         "importPath": "pages.main_page",
         "description": "pages.main_page",
-        "peekOfCode": "class BasePageLocators:\n    \"\"\"Класс содержит локаторы применяемые на главной странице\"\"\"\n    URL_BASE_PAGE = \"https://tyumen.blizko.ru/\"\n    LOCATOR_AUTH_BUTTON = (By.XPATH, '//*[@id=\"open-auth-popup\"]')\n    LOCATOR_CART_BUTTON = (By.XPATH, '//ul[@class=\"header-navigation-links\"]/li[2]')\n    LOCATOR_MENU_BUTTON = (By.XPATH, \"/html/body/div[1]/div[2]/div/div[2]/button\")\n    LOCATOR_PUR_BUTTON = (By.XPATH, '//ul[@class=\"header-navigation-links\"]/li[0]')\n    LOCATOR_FAVORITE_BUTTON = (By.XPATH, '//ul[@class=\"header-navigation-links\"]/li[1]')\n    LOCATOR_SEARCH_FIELD = (By.XPATH, '//input[@name=\"q\"]')\n    LOCATOR_SEARSH_BUTTON = (By.CLASS_NAME, \"header-search-form__submit\")",
+        "peekOfCode": "class BasePageLocators:\n    \"\"\"Класс содержит локаторы применяемые на главной странице\"\"\"\n    URL_BASE_PAGE = \"https://tyumen.blizko.ru/\"\n    LOCATOR_AUTH_BUTTON = (By.XPATH, '//*[@id=\"open-auth-popup\"]')\n    LOCATOR_MENU_BUTTON = (By.XPATH, \"/html/body/div[1]/div[2]/div/div[2]/button\")\n    LOCATOR_PUR_BUTTON = (By.XPATH, '//ul[@class=\"header-navigation-links\"]/li[0]')\n    LOCATOR_FAVORITE_BUTTON = (By.XPATH, '//ul[@class=\"header-navigation-links\"]/li[1]')\n    LOCATOR_CART_BUTTON = (By.XPATH, '//ul[@class=\"header-navigation-links\"]/li[3]')\n    LOCATOR_SEARCH_FIELD = (By.XPATH, '//input[@name=\"q\"]')\n    LOCATOR_SEARSH_BUTTON = (By.XPATH, \"//button[@class='header-search-form__submit']\")",
         "detail": "pages.main_page",
         "documentation": {}
     },
@@ -142,16 +142,7 @@
         "kind": 2,
         "importPath": "tests.test_open_main_page",
         "description": "tests.test_open_main_page",
-        "peekOfCode": "def test_main_menu(driver):\n    mp = MainPage(driver)\n    # Переход на главную страницу\n    mp.go_to_base_url()\n    # Переход на страницу главного меню\n    mp.go_to_main_menu()\n\"\"\" Тест кнопки корзины \"\"\"\ndef test_cart_button(driver):\n    mp = MainPage(driver)\n    # Переход на главную страницу",
-        "detail": "tests.test_open_main_page",
-        "documentation": {}
-    },
-    {
-        "label": "test_cart_button",
-        "kind": 2,
-        "importPath": "tests.test_open_main_page",
-        "description": "tests.test_open_main_page",
-        "peekOfCode": "def test_cart_button(driver):\n    mp = MainPage(driver)\n    # Переход на главную страницу\n    mp.go_to_base_url()\n    # Переход на страницу корзины\n    mp.go_to_cart()\n\"\"\" Тест поля пользовательского поиска \"\"\"\ndef test_search_field(driver):\n    mp = MainPage(driver)\n    # Переход на главную страницу",
+        "peekOfCode": "def test_main_menu(driver):\n    mp = MainPage(driver)\n    # Переход на главную страницу\n    mp.go_to_base_url()\n    # Переход на страницу главного меню\n    mp.go_to_main_menu()\n\"\"\" Тест поля пользовательского поиска \"\"\"\ndef test_search_field(driver):\n    mp = MainPage(driver)\n    # Переход на главную страницу",
         "detail": "tests.test_open_main_page",
         "documentation": {}
     },
@@ -160,7 +151,16 @@
         "kind": 2,
         "importPath": "tests.test_open_main_page",
         "description": "tests.test_open_main_page",
-        "peekOfCode": "def test_search_field(driver):\n    mp = MainPage(driver)\n    # Переход на главную страницу\n    mp.go_to_base_url()\n    # Заполнение строки поиска\n    mp.send_search_text()\n# def test_buy_product(driver):\n#     mp = MainPage(driver)\n#     # Переход на главную страницу\n#     mp.go_to_base_url()",
+        "peekOfCode": "def test_search_field(driver):\n    mp = MainPage(driver)\n    # Переход на главную страницу\n    mp.go_to_base_url()\n    # Заполнение строки поиска\n    mp.send_search_text()\ndef test_buy_product(driver):\n    mp = MainPage(driver)\n    # Переход на главную страницу\n    mp.go_to_base_url()",
+        "detail": "tests.test_open_main_page",
+        "documentation": {}
+    },
+    {
+        "label": "test_buy_product",
+        "kind": 2,
+        "importPath": "tests.test_open_main_page",
+        "description": "tests.test_open_main_page",
+        "peekOfCode": "def test_buy_product(driver):\n    mp = MainPage(driver)\n    # Переход на главную страницу\n    mp.go_to_base_url()\n    mp.autentification()\n    mp.go_to_cart()",
         "detail": "tests.test_open_main_page",
         "documentation": {}
     },

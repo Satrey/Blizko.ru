@@ -31,17 +31,6 @@ def test_main_menu(driver):
     mp.go_to_main_menu()
 
 
-""" Тест кнопки корзины """
-
-
-def test_cart_button(driver):
-    mp = MainPage(driver)
-    # Переход на главную страницу
-    mp.go_to_base_url()
-    # Переход на страницу корзины
-    mp.go_to_cart()
-
-
 """ Тест поля пользовательского поиска """
 
 
@@ -53,11 +42,9 @@ def test_search_field(driver):
     mp.send_search_text()
 
 
-# def test_buy_product(driver):
-#     mp = MainPage(driver)
-#     # Переход на главную страницу
-#     mp.go_to_base_url()
-#     mp.autentification()
-#     mp.go_to_main_menu()
-#     mp.input_search_text()
-#     mp.go_to_cart()
+def test_buy_product(driver):
+    mp = MainPage(driver)
+    # Переход на главную страницу
+    mp.go_to_base_url()
+    mp.autentification()
+    mp.go_to_cart()
