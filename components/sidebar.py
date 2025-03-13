@@ -2,9 +2,9 @@
 from base.base_class import Base
 
 
-class FooterComponentLocators:
+class SidebarComponentLocators:
     pass
 
 
-class FooterComponent(Base):
+class SidebarComponent(Base):
     pass

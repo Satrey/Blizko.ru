@@ -34,12 +34,43 @@
         "documentation": {}
     },
     {
-        "label": "time",
-        "kind": 6,
+        "label": "Base",
+        "importPath": "base.base_class",
+        "description": "base.base_class",
         "isExtraImport": true,
-        "importPath": "time",
-        "description": "time",
-        "detail": "time",
+        "detail": "base.base_class",
+        "documentation": {}
+    },
+    {
+        "label": "Base",
+        "importPath": "base.base_class",
+        "description": "base.base_class",
+        "isExtraImport": true,
+        "detail": "base.base_class",
+        "documentation": {}
+    },
+    {
+        "label": "Base",
+        "importPath": "base.base_class",
+        "description": "base.base_class",
+        "isExtraImport": true,
+        "detail": "base.base_class",
+        "documentation": {}
+    },
+    {
+        "label": "Base",
+        "importPath": "base.base_class",
+        "description": "base.base_class",
+        "isExtraImport": true,
+        "detail": "base.base_class",
+        "documentation": {}
+    },
+    {
+        "label": "Base",
+        "importPath": "base.base_class",
+        "description": "base.base_class",
+        "isExtraImport": true,
+        "detail": "base.base_class",
         "documentation": {}
     },
     {
@@ -51,11 +82,28 @@
         "documentation": {}
     },
     {
-        "label": "Base",
-        "importPath": "base.base_class",
-        "description": "base.base_class",
+        "label": "By",
+        "importPath": "selenium.webdriver.common.by",
+        "description": "selenium.webdriver.common.by",
         "isExtraImport": true,
-        "detail": "base.base_class",
+        "detail": "selenium.webdriver.common.by",
+        "documentation": {}
+    },
+    {
+        "label": "time",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "time",
+        "description": "time",
+        "detail": "time",
+        "documentation": {}
+    },
+    {
+        "label": "HeaderComponent",
+        "importPath": "components.header",
+        "description": "components.header",
+        "isExtraImport": true,
+        "detail": "components.header",
         "documentation": {}
     },
     {
@@ -110,11 +158,83 @@
         "documentation": {}
     },
     {
+        "label": "FooterComponentLocators",
+        "kind": 6,
+        "importPath": "components.footer",
+        "description": "components.footer",
+        "peekOfCode": "class FooterComponentLocators:\n    pass\nclass FooterComponent(Base):\n    pass",
+        "detail": "components.footer",
+        "documentation": {}
+    },
+    {
+        "label": "FooterComponent",
+        "kind": 6,
+        "importPath": "components.footer",
+        "description": "components.footer",
+        "peekOfCode": "class FooterComponent(Base):\n    pass",
+        "detail": "components.footer",
+        "documentation": {}
+    },
+    {
+        "label": "HeaderComponentLocators",
+        "kind": 6,
+        "importPath": "components.header",
+        "description": "components.header",
+        "peekOfCode": "class HeaderComponentLocators:\n    \"\"\"Класс содержит локаторы используемые для поиска элементов в компоненте заголовка\"\"\"\n    # Локаторы\n    LOCATOR_AUTH_BUTTON = (By.XPATH, '//*[@id=\"open-auth-popup\"]')\n    LOCATOR_MENU_BUTTON = (By.XPATH, \"/html/body/div[1]/div[2]/div/div[2]/button\")\n    LOCATOR_PUR_BUTTON = (By.XPATH, '//ul[@class=\"header-navigation-links\"]/li[0]')\n    LOCATOR_FAVORITE_BUTTON = (By.XPATH, '//ul[@class=\"header-navigation-links\"]/li[1]')\n    LOCATOR_CART_BUTTON = (By.XPATH, '//ul[@class=\"header-navigation-links\"]/li[3]')\n    LOCATOR_SEARCH_FIELD = (By.XPATH, '//input[@name=\"q\"]')\n    LOCATOR_SEARSH_BUTTON = (By.XPATH, \"//button[@class='header-search-form__submit']\")",
+        "detail": "components.header",
+        "documentation": {}
+    },
+    {
+        "label": "HeaderComponent",
+        "kind": 6,
+        "importPath": "components.header",
+        "description": "components.header",
+        "peekOfCode": "class HeaderComponent(Base):\n    \"\"\"Класс компонента шапки страницы\"\"\"\n    # Геттеры\n    def get_login_button(self):\n        print(\"Получение локатора кнопки Войти\")\n        return self.get_element(20, HeaderComponentLocators.LOCATOR_AUTH_BUTTON)\n    def get_menu_button(self):\n        print(\"Получение локатора кнопки Меню\")\n        return self.get_element(20, HeaderComponentLocators.LOCATOR_MENU_BUTTON)\n    def get_cart_button(self):",
+        "detail": "components.header",
+        "documentation": {}
+    },
+    {
+        "label": "MainComponentLocators",
+        "kind": 6,
+        "importPath": "components.main",
+        "description": "components.main",
+        "peekOfCode": "class MainComponentLocators:\n    pass\nclass MainComponent(Base):\n    pass",
+        "detail": "components.main",
+        "documentation": {}
+    },
+    {
+        "label": "MainComponent",
+        "kind": 6,
+        "importPath": "components.main",
+        "description": "components.main",
+        "peekOfCode": "class MainComponent(Base):\n    pass",
+        "detail": "components.main",
+        "documentation": {}
+    },
+    {
+        "label": "SidebarComponentLocators",
+        "kind": 6,
+        "importPath": "components.sidebar",
+        "description": "components.sidebar",
+        "peekOfCode": "class SidebarComponentLocators:\n    pass\nclass SidebarComponent(Base):\n    pass",
+        "detail": "components.sidebar",
+        "documentation": {}
+    },
+    {
+        "label": "SidebarComponent",
+        "kind": 6,
+        "importPath": "components.sidebar",
+        "description": "components.sidebar",
+        "peekOfCode": "class SidebarComponent(Base):\n    pass",
+        "detail": "components.sidebar",
+        "documentation": {}
+    },
+    {
         "label": "MainPageLocators",
         "kind": 6,
         "importPath": "pages.main_page",
         "description": "pages.main_page",
-        "peekOfCode": "class MainPageLocators:\n    \"\"\"Класс содержит локаторы применяемые на главной странице\"\"\"\n    LOCATOR_AUTH_BUTTON = (By.XPATH, '//*[@id=\"open-auth-popup\"]')\n    LOCATOR_MENU_BUTTON = (By.XPATH, \"/html/body/div[1]/div[2]/div/div[2]/button\")\n    LOCATOR_PUR_BUTTON = (By.XPATH, '//ul[@class=\"header-navigation-links\"]/li[0]')\n    LOCATOR_FAVORITE_BUTTON = (By.XPATH, '//ul[@class=\"header-navigation-links\"]/li[1]')\n    LOCATOR_CART_BUTTON = (By.XPATH, '//ul[@class=\"header-navigation-links\"]/li[3]')\n    LOCATOR_SEARCH_FIELD = (By.XPATH, '//input[@name=\"q\"]')\n    LOCATOR_SEARSH_BUTTON = (By.XPATH, \"//button[@class='header-search-form__submit']\")\n    LOCATOR_AUTH_PHONE_FIELD = (By.NAME, \"phone\")",
+        "peekOfCode": "class MainPageLocators:\n    \"\"\"Класс содержит локаторы применяемые на главной странице\"\"\"\n    LOCATOR_AUTH_PHONE_FIELD = (By.NAME, \"phone\")\n    LOCATOR_AUTH_PASS_FIELD = (By.NAME, \"password\")\n    LOCATOR_AUTH_FORM_BUTTON = (By.CLASS_NAME, \"full-width-button\")\nclass MainPage(Base):\n    \"\"\"Класс главной страницы\"\"\"\n    def __init__(self, driver):\n        super().__init__(driver)\n        self.header_component = HeaderComponent(driver)",
         "detail": "pages.main_page",
         "documentation": {}
     },
@@ -123,7 +243,7 @@
         "kind": 6,
         "importPath": "pages.main_page",
         "description": "pages.main_page",
-        "peekOfCode": "class MainPage(Base):\n    \"\"\"Класс главной страницы\"\"\"\n    # Геттеры\n    def get_login_button(self):\n        print(\"Получение локатора кнопки Войти\")\n        return self.get_element(20, MainPageLocators.LOCATOR_AUTH_BUTTON)\n    def get_menu_button(self):\n        print(\"Получение локатора кнопки Меню\")\n        return self.get_element(20, MainPageLocators.LOCATOR_MENU_BUTTON)\n    def get_cart_button(self):",
+        "peekOfCode": "class MainPage(Base):\n    \"\"\"Класс главной страницы\"\"\"\n    def __init__(self, driver):\n        super().__init__(driver)\n        self.header_component = HeaderComponent(driver)\n    # Геттеры\n    def get_auth_phone_field(self):\n        print(\"Получение локатора поля ввода Phone\")\n        return self.get_element(20, MainPageLocators.LOCATOR_AUTH_PHONE_FIELD)\n    def get_auth_pass_field(self):",
         "detail": "pages.main_page",
         "documentation": {}
     },
@@ -177,7 +297,16 @@
         "kind": 2,
         "importPath": "tests.test_open_main_page",
         "description": "tests.test_open_main_page",
-        "peekOfCode": "def test_buy_product(driver):\n    mp = MainPage(driver)\n    # Переход на главную страницу\n    mp.go_to_base_url()\n    mp.autentification()\n    mp.go_to_cart()",
+        "peekOfCode": "def test_buy_product(driver):\n    mp = MainPage(driver)\n    # Переход на главную страницу\n    mp.go_to_base_url()\n    # Аутентификация пользователя\n    mp.autentification()\n    mp.go_to_cart()\ndef test_navbar(driver):\n    mp = MainPage(driver)\n    # Переход на главную страницу",
+        "detail": "tests.test_open_main_page",
+        "documentation": {}
+    },
+    {
+        "label": "test_navbar",
+        "kind": 2,
+        "importPath": "tests.test_open_main_page",
+        "description": "tests.test_open_main_page",
+        "peekOfCode": "def test_navbar(driver):\n    mp = MainPage(driver)\n    # Переход на главную страницу\n    mp.go_to_base_url()\n    # Проверка навигационного бара\n    mp.check_navbar_links()",
         "detail": "tests.test_open_main_page",
         "documentation": {}
     },

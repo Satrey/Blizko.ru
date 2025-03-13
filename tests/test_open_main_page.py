@@ -1,6 +1,7 @@
 from pages.main_page import MainPage
 from pages.page_urls import PageUrls
 
+
 """ Тест на открытие главной страницы """
 
 
@@ -48,5 +49,14 @@ def test_buy_product(driver):
     mp = MainPage(driver)
     # Переход на главную страницу
     mp.go_to_base_url()
+    # Аутентификация пользователя
     mp.autentification()
     mp.go_to_cart()
+
+
+def test_navbar(driver):
+    mp = MainPage(driver)
+    # Переход на главную страницу
+    mp.go_to_base_url()
+    # Проверка навигационного бара
+    mp.check_navbar_links()
