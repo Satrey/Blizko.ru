@@ -64,8 +64,8 @@ class MainPage(Base):
         self.header_component.click_cart_button()
         time.sleep(2)
 
-    def send_search_text(self):
-        self.header_component.input_search_text()
+    def send_search_text(self, search_text):
+        self.header_component.input_search_text(search_text)
         self.header_component.click_search_button()
         time.sleep(2)
 
@@ -83,3 +83,9 @@ class MainPage(Base):
         for link_text in navbar:
             self.header_component.click_portal_nav_link(link_text)
             time.sleep(2)
+
+    def go_to_navbar_category(self, category):
+        navbar = self.header_component.get_portal_nav_list()
+        assert category in navbar, "В меню нет такой категории"
+        self.header_component.click_portal_nav_link(category)
+        time.sleep(2)

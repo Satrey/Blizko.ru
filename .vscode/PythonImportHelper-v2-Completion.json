@@ -288,7 +288,7 @@
         "kind": 2,
         "importPath": "tests.test_open_main_page",
         "description": "tests.test_open_main_page",
-        "peekOfCode": "def test_search_field(driver):\n    mp = MainPage(driver)\n    # Переход на главную страницу\n    mp.go_to_base_url()\n    # Заполнение строки поиска\n    mp.send_search_text()\ndef test_buy_product(driver):\n    mp = MainPage(driver)\n    # Переход на главную страницу\n    mp.go_to_base_url()",
+        "peekOfCode": "def test_search_field(driver):\n    mp = MainPage(driver)\n    # Переход на главную страницу\n    mp.go_to_base_url()\n    # Заполнение строки поиска\n    mp.send_search_text(\"Одежда\")\n    mp.go_to_base_url()\n    mp.send_search_text(\"'select title, text from news where id=10 or 1=1\")\ndef test_buy_product(driver):\n    mp = MainPage(driver)",
         "detail": "tests.test_open_main_page",
         "documentation": {}
     },
@@ -297,7 +297,7 @@
         "kind": 2,
         "importPath": "tests.test_open_main_page",
         "description": "tests.test_open_main_page",
-        "peekOfCode": "def test_buy_product(driver):\n    mp = MainPage(driver)\n    # Переход на главную страницу\n    mp.go_to_base_url()\n    # Аутентификация пользователя\n    mp.autentification()\n    mp.go_to_cart()\ndef test_navbar(driver):\n    mp = MainPage(driver)\n    # Переход на главную страницу",
+        "peekOfCode": "def test_buy_product(driver):\n    mp = MainPage(driver)\n    # Переход на главную страницу\n    mp.go_to_base_url()\n    # Аутентификация пользователя\n    mp.autentification()\n    mp.go_to_navbar_category(\"Одежда\")\n    mp.go_to_cart()\ndef test_navbar(driver):\n    mp = MainPage(driver)",
         "detail": "tests.test_open_main_page",
         "documentation": {}
     },

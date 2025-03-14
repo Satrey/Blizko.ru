@@ -42,7 +42,9 @@ def test_search_field(driver):
     # Переход на главную страницу
     mp.go_to_base_url()
     # Заполнение строки поиска
-    mp.send_search_text()
+    mp.send_search_text("Одежда")
+    mp.go_to_base_url()
+    mp.send_search_text("'select title, text from news where id=10 or 1=1")
 
 
 def test_buy_product(driver):
@@ -51,6 +53,7 @@ def test_buy_product(driver):
     mp.go_to_base_url()
     # Аутентификация пользователя
     mp.autentification()
+    mp.go_to_navbar_category("Одежда")
     mp.go_to_cart()
 
 

@@ -80,8 +80,8 @@ class HeaderComponent(Base):
         self.get_searh_button().submit()
         print("Клик на кнопке Поиск")
 
-    def input_search_text(self):
-        self.get_search_field().send_keys("Компьютеры")
+    def input_search_text(self, search_text):
+        self.get_search_field().send_keys(search_text)
         print("Ввод текста в поле поиска")
 
     def click_portal_nav_link(self, link_text):
