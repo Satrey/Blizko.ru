@@ -90,6 +90,14 @@
         "documentation": {}
     },
     {
+        "label": "By",
+        "importPath": "selenium.webdriver.common.by",
+        "description": "selenium.webdriver.common.by",
+        "isExtraImport": true,
+        "detail": "selenium.webdriver.common.by",
+        "documentation": {}
+    },
+    {
         "label": "time",
         "kind": 6,
         "isExtraImport": true,
@@ -104,6 +112,14 @@
         "description": "components.header",
         "isExtraImport": true,
         "detail": "components.header",
+        "documentation": {}
+    },
+    {
+        "label": "MainComponent",
+        "importPath": "components.main",
+        "description": "components.main",
+        "isExtraImport": true,
+        "detail": "components.main",
         "documentation": {}
     },
     {
@@ -144,7 +160,7 @@
         "kind": 6,
         "importPath": "base.base_class",
         "description": "base.base_class",
-        "peekOfCode": "class Base:\n    \"\"\"Базовый класс, который содержит универсальные методы\"\"\"\n    def __init__(self, driver):\n        self.driver = driver\n    \"\"\" Метод получает текущий URL \"\"\"\n    def get_current_url(self):\n        current_url = self.driver.current_url\n        print(f\"Текущий URL - {current_url}\")\n        return current_url\n    \"\"\" Метод получает елемент страницы по локатору \"\"\"",
+        "peekOfCode": "class Base:\n    \"\"\"Базовый класс, который содержит универсальные методы\"\"\"\n    def __init__(self, driver):\n        self.driver = driver\n    def get_current_url(self):\n        \"\"\"Метод получает текущий URL\"\"\"\n        current_url = self.driver.current_url\n        print(f\"Текущий URL - {current_url}\")\n        return current_url\n    def get_element(self, wait_time, locator):",
         "detail": "base.base_class",
         "documentation": {}
     },
@@ -153,7 +169,7 @@
         "kind": 5,
         "importPath": "base.base_class",
         "description": "base.base_class",
-        "peekOfCode": "BASE_DIR = \"/home/alex/VSCodeProjects/tyumen.blizko.ru/\"\nclass Base:\n    \"\"\"Базовый класс, который содержит универсальные методы\"\"\"\n    def __init__(self, driver):\n        self.driver = driver\n    \"\"\" Метод получает текущий URL \"\"\"\n    def get_current_url(self):\n        current_url = self.driver.current_url\n        print(f\"Текущий URL - {current_url}\")\n        return current_url",
+        "peekOfCode": "BASE_DIR = \"/home/alex/VSCodeProjects/tyumen.blizko.ru/\"\nclass Base:\n    \"\"\"Базовый класс, который содержит универсальные методы\"\"\"\n    def __init__(self, driver):\n        self.driver = driver\n    def get_current_url(self):\n        \"\"\"Метод получает текущий URL\"\"\"\n        current_url = self.driver.current_url\n        print(f\"Текущий URL - {current_url}\")\n        return current_url",
         "detail": "base.base_class",
         "documentation": {}
     },
@@ -198,7 +214,7 @@
         "kind": 6,
         "importPath": "components.main",
         "description": "components.main",
-        "peekOfCode": "class MainComponentLocators:\n    pass\nclass MainComponent(Base):\n    pass",
+        "peekOfCode": "class MainComponentLocators:\n    \"\"\"Класс содержащий локаторы используемые на основном компаненте страницы\"\"\"\n    LOCATOR_PRODUCTS_LIST = (By.CLASS_NAME, \"centered-\")\n    LOCATOR_PRODUCT_ITEM = (By.CLASS_NAME, \"\")\nclass MainComponent(Base):\n    \"\"\"Класс основного компанента страницы\"\"\"\n    def get_products_category_list(self):\n        print(\"Получение навигационного меню портала\")\n        elements = self.get_elements(20, MainComponentLocators.LOCATOR_PRODUCTS_LIST)\n        return elements",
         "detail": "components.main",
         "documentation": {}
     },
@@ -207,7 +223,7 @@
         "kind": 6,
         "importPath": "components.main",
         "description": "components.main",
-        "peekOfCode": "class MainComponent(Base):\n    pass",
+        "peekOfCode": "class MainComponent(Base):\n    \"\"\"Класс основного компанента страницы\"\"\"\n    def get_products_category_list(self):\n        print(\"Получение навигационного меню портала\")\n        elements = self.get_elements(20, MainComponentLocators.LOCATOR_PRODUCTS_LIST)\n        return elements\n    def get_category(self, category):\n        categories = self.get_products_category_list()\n        for i, item in enumerate(categories, start=1):\n            if category in item.text:",
         "detail": "components.main",
         "documentation": {}
     },
@@ -243,7 +259,7 @@
         "kind": 6,
         "importPath": "pages.main_page",
         "description": "pages.main_page",
-        "peekOfCode": "class MainPage(Base):\n    \"\"\"Класс главной страницы\"\"\"\n    def __init__(self, driver):\n        super().__init__(driver)\n        self.header_component = HeaderComponent(driver)\n    # Геттеры\n    def get_auth_phone_field(self):\n        print(\"Получение локатора поля ввода Phone\")\n        return self.get_element(20, MainPageLocators.LOCATOR_AUTH_PHONE_FIELD)\n    def get_auth_pass_field(self):",
+        "peekOfCode": "class MainPage(Base):\n    \"\"\"Класс главной страницы\"\"\"\n    def __init__(self, driver):\n        super().__init__(driver)\n        self.header_component = HeaderComponent(driver)\n        self.main_component = MainComponent(driver)\n    # Геттеры\n    def get_auth_phone_field(self):\n        print(\"Получение локатора поля ввода Phone\")\n        return self.get_element(20, MainPageLocators.LOCATOR_AUTH_PHONE_FIELD)",
         "detail": "pages.main_page",
         "documentation": {}
     },
@@ -257,57 +273,12 @@
         "documentation": {}
     },
     {
-        "label": "test_open_main_page",
+        "label": "test_smoke",
         "kind": 2,
-        "importPath": "tests.test_open_main_page",
-        "description": "tests.test_open_main_page",
-        "peekOfCode": "def test_open_main_page(driver):\n    mp = MainPage(driver)\n    # Переход на главную страницу\n    mp.go_to_base_url()\n    mp.assert_url(PageUrls.URL_BASE_PAGE)\n\"\"\" Тест аутентификации пользователя \"\"\"\ndef test_user_autentification(driver):\n    mp = MainPage(driver)\n    # Переход на главную страницу\n    mp.go_to_base_url()",
-        "detail": "tests.test_open_main_page",
-        "documentation": {}
-    },
-    {
-        "label": "test_user_autentification",
-        "kind": 2,
-        "importPath": "tests.test_open_main_page",
-        "description": "tests.test_open_main_page",
-        "peekOfCode": "def test_user_autentification(driver):\n    mp = MainPage(driver)\n    # Переход на главную страницу\n    mp.go_to_base_url()\n    # Аутентификация пользователя\n    mp.autentification()\n\"\"\" Тест кнопки главного меню \"\"\"\ndef test_main_menu(driver):\n    mp = MainPage(driver)\n    # Переход на главную страницу",
-        "detail": "tests.test_open_main_page",
-        "documentation": {}
-    },
-    {
-        "label": "test_main_menu",
-        "kind": 2,
-        "importPath": "tests.test_open_main_page",
-        "description": "tests.test_open_main_page",
-        "peekOfCode": "def test_main_menu(driver):\n    mp = MainPage(driver)\n    # Переход на главную страницу\n    mp.go_to_base_url()\n    # Переход на страницу главного меню\n    mp.go_to_main_menu()\n\"\"\" Тест поля пользовательского поиска \"\"\"\ndef test_search_field(driver):\n    mp = MainPage(driver)\n    # Переход на главную страницу",
-        "detail": "tests.test_open_main_page",
-        "documentation": {}
-    },
-    {
-        "label": "test_search_field",
-        "kind": 2,
-        "importPath": "tests.test_open_main_page",
-        "description": "tests.test_open_main_page",
-        "peekOfCode": "def test_search_field(driver):\n    mp = MainPage(driver)\n    # Переход на главную страницу\n    mp.go_to_base_url()\n    # Заполнение строки поиска\n    mp.send_search_text(\"Одежда\")\n    mp.go_to_base_url()\n    mp.send_search_text(\"'select title, text from news where id=10 or 1=1\")\ndef test_buy_product(driver):\n    mp = MainPage(driver)",
-        "detail": "tests.test_open_main_page",
-        "documentation": {}
-    },
-    {
-        "label": "test_buy_product",
-        "kind": 2,
-        "importPath": "tests.test_open_main_page",
-        "description": "tests.test_open_main_page",
-        "peekOfCode": "def test_buy_product(driver):\n    mp = MainPage(driver)\n    # Переход на главную страницу\n    mp.go_to_base_url()\n    # Аутентификация пользователя\n    mp.autentification()\n    mp.go_to_navbar_category(\"Одежда\")\n    mp.go_to_cart()\ndef test_navbar(driver):\n    mp = MainPage(driver)",
-        "detail": "tests.test_open_main_page",
-        "documentation": {}
-    },
-    {
-        "label": "test_navbar",
-        "kind": 2,
-        "importPath": "tests.test_open_main_page",
-        "description": "tests.test_open_main_page",
-        "peekOfCode": "def test_navbar(driver):\n    mp = MainPage(driver)\n    # Переход на главную страницу\n    mp.go_to_base_url()\n    # Проверка навигационного бара\n    mp.check_navbar_links()",
-        "detail": "tests.test_open_main_page",
+        "importPath": "tests.test_smoke",
+        "description": "tests.test_smoke",
+        "peekOfCode": "def test_smoke(driver):\n    mp = MainPage(driver)\n    mp.go_to_base_url()\n    mp.go_to_navbar_category(\"Техника\")\n    mp.assert_url(PageUrls.URL_TEHNIKA_PAGE)\n    mp.select_category(\"Компьютеры\")\n    mp.select_category(\"Ноутбуки и комплектующие\")\n    mp.select_category(\"Ноутбуки\")\n# def test_buy_product(driver):\n#     mp = MainPage(driver)",
+        "detail": "tests.test_smoke",
         "documentation": {}
     },
     {

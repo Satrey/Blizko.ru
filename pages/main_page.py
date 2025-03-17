@@ -4,6 +4,7 @@ from selenium.webdriver.common.by import By
 from base.base_class import Base
 from .page_urls import PageUrls
 from components.header import HeaderComponent
+from components.main import MainComponent
 
 
 class MainPageLocators:
@@ -21,6 +22,7 @@ class MainPage(Base):
         super().__init__(driver)
 
         self.header_component = HeaderComponent(driver)
+        self.main_component = MainComponent(driver)
 
     # Геттеры
 
@@ -89,3 +91,7 @@ class MainPage(Base):
         assert category in navbar, "В меню нет такой категории"
         self.header_component.click_portal_nav_link(category)
         time.sleep(2)
+
+    def select_category(self, category: str):
+        self.main_component.click_category(category)
+        time.sleep(12)
