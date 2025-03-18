@@ -62,21 +62,22 @@ class MainPage(Base):
         self.header_component.click_menu_button()
         time.sleep(2)
 
-    def go_to_cart(self):
+    def go_to_cart_from_header(self):
         self.header_component.click_cart_button()
         time.sleep(2)
 
     def send_search_text(self, search_text):
         self.header_component.input_search_text(search_text)
+        time.sleep(2)
         self.header_component.click_search_button()
         time.sleep(2)
 
     def autentification(self):
         self.header_component.click_login_button()
-        time.sleep(2)
         self.input_phone_number()
         time.sleep(2)
         self.input_pass()
+        time.sleep(2)
         self.click_auth_form_submit_button()
         time.sleep(2)
 
@@ -90,8 +91,15 @@ class MainPage(Base):
         navbar = self.header_component.get_portal_nav_list()
         assert category in navbar, "В меню нет такой категории"
         self.header_component.click_portal_nav_link(category)
-        time.sleep(2)
 
     def select_category(self, category: str):
         self.main_component.click_category(category)
-        time.sleep(12)
+
+    def select_product(self, product: str):
+        self.main_component.click_product(product)
+
+    def go_to_market(self):
+        self.main_component.click_market_button()
+
+    def go_to_cart(self):
+        self.main_component.click_add_to_cart_button()

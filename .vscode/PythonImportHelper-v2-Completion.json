@@ -214,7 +214,7 @@
         "kind": 6,
         "importPath": "components.main",
         "description": "components.main",
-        "peekOfCode": "class MainComponentLocators:\n    \"\"\"Класс содержащий локаторы используемые на основном компаненте страницы\"\"\"\n    LOCATOR_PRODUCTS_LIST = (By.CLASS_NAME, \"centered-\")\n    LOCATOR_PRODUCT_ITEM = (By.CLASS_NAME, \"\")\nclass MainComponent(Base):\n    \"\"\"Класс основного компанента страницы\"\"\"\n    def get_products_category_list(self):\n        print(\"Получение навигационного меню портала\")\n        elements = self.get_elements(20, MainComponentLocators.LOCATOR_PRODUCTS_LIST)\n        return elements",
+        "peekOfCode": "class MainComponentLocators:\n    \"\"\"Класс содержащий локаторы используемые на основном компаненте страницы\"\"\"\n    LOCATOR_PRODUCTS_LIST = (By.CLASS_NAME, \"centered-\")\n    LOCATOR_PRODUCT_ITEM = (By.CLASS_NAME, \"gallery-product-item\")\n    LOCATOR_MARKET_BUTTON = (By.XPATH, \"//button[contains(text(),'Перейти в магазин')]\")\n    LOCATOR_ADD_TO_CART_BUTTON = (\n        By.XPATH,\n        \"/html/body/div[1]/div[8]/div[2]/div[2]/div/div[2]/div/div/order-cart-control/button\",\n    )\n    LOCATOR_GO_TO_CART_BUTTON = (By.LINK_TEXT, \"Корзина\")",
         "detail": "components.main",
         "documentation": {}
     },
@@ -223,7 +223,7 @@
         "kind": 6,
         "importPath": "components.main",
         "description": "components.main",
-        "peekOfCode": "class MainComponent(Base):\n    \"\"\"Класс основного компанента страницы\"\"\"\n    def get_products_category_list(self):\n        print(\"Получение навигационного меню портала\")\n        elements = self.get_elements(20, MainComponentLocators.LOCATOR_PRODUCTS_LIST)\n        return elements\n    def get_category(self, category):\n        categories = self.get_products_category_list()\n        for i, item in enumerate(categories, start=1):\n            if category in item.text:",
+        "peekOfCode": "class MainComponent(Base):\n    \"\"\"Класс основного компанента страницы\"\"\"\n    # Геттеры\n    def get_products_category_list(self):\n        print(\"Получение списка категорий товаров в главной секции страницы\")\n        elements = self.get_elements(20, MainComponentLocators.LOCATOR_PRODUCTS_LIST)\n        return elements\n    def get_category(self, category):\n        print(f\"Выбор категории {category} из списка категорий главной страницы\")\n        categories = self.get_products_category_list()",
         "detail": "components.main",
         "documentation": {}
     },
@@ -268,7 +268,7 @@
         "kind": 6,
         "importPath": "pages.page_urls",
         "description": "pages.page_urls",
-        "peekOfCode": "class PageUrls:\n    \"\"\"Класс содержит url страниц интернет магазина\"\"\"\n    # Главная страница магазина\n    URL_BASE_PAGE = \"https://tyumen.blizko.ru/\"\n    # URL Страниц магазина по категориям\n    URL_DIALS_PAGE = \"https://tyumen.blizko.ru/deals\"\n    URL_CONSTRUCTION_PAGE = \"https://tyumen.blizko.ru/predl/construction\"\n    URL_TEHNIKA_PAGE = \"https://tyumen.blizko.ru/predl/promgood/tehnika\"\n    URL_INTERIER_PAGE = \"https://tyumen.blizko.ru/predl/promgood/interier\"\n    URL_TTRANSPORT_PAGE = \"https://tyumen.blizko.ru/predl/transport\"",
+        "peekOfCode": "class PageUrls:\n    \"\"\"Класс содержит url страниц интернет магазина\"\"\"\n    # Главная страница магазина\n    URL_BASE_PAGE = \"https://tyumen.blizko.ru/\"\n    # URL Страниц магазина по категориям\n    URL_DIALS_PAGE = \"https://tyumen.blizko.ru/deals\"\n    URL_CONSTRUCTION_PAGE = \"https://tyumen.blizko.ru/predl/construction\"\n    URL_TEHNIKA_CATEGORY_PAGE = \"https://tyumen.blizko.ru/predl/promgood/tehnika\"\n    URL_COMPUTER_CATEGORY_PAGE = \"https://tyumen.blizko.ru/predl/computer/computer\"\n    URL_NOTEBOOK_CATEGORY_PAGE = (",
         "detail": "pages.page_urls",
         "documentation": {}
     },
@@ -277,7 +277,7 @@
         "kind": 2,
         "importPath": "tests.test_smoke",
         "description": "tests.test_smoke",
-        "peekOfCode": "def test_smoke(driver):\n    mp = MainPage(driver)\n    mp.go_to_base_url()\n    mp.go_to_navbar_category(\"Техника\")\n    mp.assert_url(PageUrls.URL_TEHNIKA_PAGE)\n    mp.select_category(\"Компьютеры\")\n    mp.select_category(\"Ноутбуки и комплектующие\")\n    mp.select_category(\"Ноутбуки\")\n# def test_buy_product(driver):\n#     mp = MainPage(driver)",
+        "peekOfCode": "def test_smoke(driver):\n    mp = MainPage(driver)\n    mp.go_to_base_url()\n    mp.go_to_navbar_category(\"Техника\")\n    time.sleep(2)\n    mp.assert_url(PageUrls.URL_TEHNIKA_CATEGORY_PAGE)\n    mp.select_category(\"Компьютеры\")\n    mp.assert_url(PageUrls.URL_COMPUTER_CATEGORY_PAGE)\n    mp.select_category(\"Ноутбуки и комплектующие\")\n    mp.assert_url(PageUrls.URL_NOTEBOOK_CATEGORY_PAGE)",
         "detail": "tests.test_smoke",
         "documentation": {}
     },

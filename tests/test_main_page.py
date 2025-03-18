@@ -46,7 +46,6 @@
 #     # Аутентификация пользователя
 #     mp.autentification()
 #     mp.go_to_navbar_category("Одежда")
-#     mp.go_to_cart()
 
 
 # def test_navbar(driver):
