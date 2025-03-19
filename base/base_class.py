@@ -27,6 +27,13 @@ class Base:
             message=f"Элемент {locator} не найден!",
         )
 
+    def get_element_button(self, wait_time, locator):
+        """Метод получает елемент страницы по локатору"""
+        return WebDriverWait(self.driver, wait_time).until(
+            EC.element_to_be_clickable(locator),
+            message=f"Элемент {locator} не найден!",
+        )
+
     def get_elements(self, wait_time, locator):
         """Метод получает список элементов по локатору"""
         return WebDriverWait(self.driver, wait_time).until(

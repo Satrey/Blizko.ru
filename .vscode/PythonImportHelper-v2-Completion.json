@@ -74,6 +74,38 @@
         "documentation": {}
     },
     {
+        "label": "Base",
+        "importPath": "base.base_class",
+        "description": "base.base_class",
+        "isExtraImport": true,
+        "detail": "base.base_class",
+        "documentation": {}
+    },
+    {
+        "label": "Base",
+        "importPath": "base.base_class",
+        "description": "base.base_class",
+        "isExtraImport": true,
+        "detail": "base.base_class",
+        "documentation": {}
+    },
+    {
+        "label": "By",
+        "importPath": "selenium.webdriver.common.by",
+        "description": "selenium.webdriver.common.by",
+        "isExtraImport": true,
+        "detail": "selenium.webdriver.common.by",
+        "documentation": {}
+    },
+    {
+        "label": "By",
+        "importPath": "selenium.webdriver.common.by",
+        "description": "selenium.webdriver.common.by",
+        "isExtraImport": true,
+        "detail": "selenium.webdriver.common.by",
+        "documentation": {}
+    },
+    {
         "label": "By",
         "importPath": "selenium.webdriver.common.by",
         "description": "selenium.webdriver.common.by",
@@ -123,11 +155,35 @@
         "documentation": {}
     },
     {
+        "label": "CartPopupComponent",
+        "importPath": "components.popup_cart",
+        "description": "components.popup_cart",
+        "isExtraImport": true,
+        "detail": "components.popup_cart",
+        "documentation": {}
+    },
+    {
         "label": "MainPage",
         "importPath": "pages.main_page",
         "description": "pages.main_page",
         "isExtraImport": true,
         "detail": "pages.main_page",
+        "documentation": {}
+    },
+    {
+        "label": "MainPage",
+        "importPath": "pages.main_page",
+        "description": "pages.main_page",
+        "isExtraImport": true,
+        "detail": "pages.main_page",
+        "documentation": {}
+    },
+    {
+        "label": "PageUrls",
+        "importPath": "pages.page_urls",
+        "description": "pages.page_urls",
+        "isExtraImport": true,
+        "detail": "pages.page_urls",
         "documentation": {}
     },
     {
@@ -214,7 +270,7 @@
         "kind": 6,
         "importPath": "components.main",
         "description": "components.main",
-        "peekOfCode": "class MainComponentLocators:\n    \"\"\"Класс содержащий локаторы используемые на основном компаненте страницы\"\"\"\n    LOCATOR_PRODUCTS_LIST = (By.CLASS_NAME, \"centered-\")\n    LOCATOR_PRODUCT_ITEM = (By.CLASS_NAME, \"gallery-product-item\")\n    LOCATOR_MARKET_BUTTON = (By.XPATH, \"//button[contains(text(),'Перейти в магазин')]\")\n    LOCATOR_ADD_TO_CART_BUTTON = (\n        By.XPATH,\n        \"/html/body/div[1]/div[8]/div[2]/div[2]/div/div[2]/div/div/order-cart-control/button\",\n    )\n    LOCATOR_GO_TO_CART_BUTTON = (By.LINK_TEXT, \"Корзина\")",
+        "peekOfCode": "class MainComponentLocators:\n    \"\"\"Класс содержащий локаторы используемые на основном компаненте страницы\"\"\"\n    LOCATOR_PRODUCTS_LIST = (By.CLASS_NAME, \"centered-\")\n    LOCATOR_PRODUCT_ITEM = (By.CLASS_NAME, \"gallery-product-item\")\n    # LOCATOR_MARKET_BUTTON\n    LOCATOR_ADD_TO_CART_BUTTON = (\n        By.XPATH,\n        \"/html/body/div[1]/div[8]/div[2]/div[2]/div/div[2]/div/div/div/div/button\",\n    )\n    LOCATOR_GO_TO_CART_BUTTON = (By.LINK_TEXT, \"Корзина\")",
         "detail": "components.main",
         "documentation": {}
     },
@@ -225,6 +281,24 @@
         "description": "components.main",
         "peekOfCode": "class MainComponent(Base):\n    \"\"\"Класс основного компанента страницы\"\"\"\n    # Геттеры\n    def get_products_category_list(self):\n        print(\"Получение списка категорий товаров в главной секции страницы\")\n        elements = self.get_elements(20, MainComponentLocators.LOCATOR_PRODUCTS_LIST)\n        return elements\n    def get_category(self, category):\n        print(f\"Выбор категории {category} из списка категорий главной страницы\")\n        categories = self.get_products_category_list()",
         "detail": "components.main",
+        "documentation": {}
+    },
+    {
+        "label": "CartPopupComponentLocators",
+        "kind": 6,
+        "importPath": "components.popup_cart",
+        "description": "components.popup_cart",
+        "peekOfCode": "class CartPopupComponentLocators:\n    \"\"\"Класс содержащий локаторы используемые на основном компаненте страницы\"\"\"\n    LOCATOR_POPUP_CART_CONFIRM_BUTTON = (\n        By.XPATH,\n        '//a[contains(text(), \"Перейти к оформлению\")]',\n    )  # (By.LINK_TEXT, \"Перейти к оформлению\")\n    LOCATOR_POPUP_CART_BACK_BUTTON = (\n        By.XPATH,\n        \"//span[contains(text(), 'Вернуться к покупкам')]\",\n    )",
+        "detail": "components.popup_cart",
+        "documentation": {}
+    },
+    {
+        "label": "CartPopupComponent",
+        "kind": 6,
+        "importPath": "components.popup_cart",
+        "description": "components.popup_cart",
+        "peekOfCode": "class CartPopupComponent(Base):\n    \"\"\"Класс всплывающего окна корзины\"\"\"\n    # Геттеры\n    def get_popup_cart_confirm_button(self):\n        print(\"Получение кнопки подтверждения заказа\")\n        return self.get_element(\n            30, CartPopupComponentLocators.LOCATOR_POPUP_CART_CONFIRM_BUTTON\n        )\n    def get_popup_cart_back_button(self):\n        print(\"Получение кнопки возврата в магазин\")",
+        "detail": "components.popup_cart",
         "documentation": {}
     },
     {
@@ -246,11 +320,29 @@
         "documentation": {}
     },
     {
+        "label": "CartPageLocators",
+        "kind": 6,
+        "importPath": "pages.cart_page",
+        "description": "pages.cart_page",
+        "peekOfCode": "class CartPageLocators:\n    \"\"\"Класс содержит локаторы которые используются на странице корзины\"\"\"\n    pass\nclass CartPage(Base):\n    \"\"\"Класс описывает страницу корзины покупателя\"\"\"\n    pass",
+        "detail": "pages.cart_page",
+        "documentation": {}
+    },
+    {
+        "label": "CartPage",
+        "kind": 6,
+        "importPath": "pages.cart_page",
+        "description": "pages.cart_page",
+        "peekOfCode": "class CartPage(Base):\n    \"\"\"Класс описывает страницу корзины покупателя\"\"\"\n    pass",
+        "detail": "pages.cart_page",
+        "documentation": {}
+    },
+    {
         "label": "MainPageLocators",
         "kind": 6,
         "importPath": "pages.main_page",
         "description": "pages.main_page",
-        "peekOfCode": "class MainPageLocators:\n    \"\"\"Класс содержит локаторы применяемые на главной странице\"\"\"\n    LOCATOR_AUTH_PHONE_FIELD = (By.NAME, \"phone\")\n    LOCATOR_AUTH_PASS_FIELD = (By.NAME, \"password\")\n    LOCATOR_AUTH_FORM_BUTTON = (By.CLASS_NAME, \"full-width-button\")\nclass MainPage(Base):\n    \"\"\"Класс главной страницы\"\"\"\n    def __init__(self, driver):\n        super().__init__(driver)\n        self.header_component = HeaderComponent(driver)",
+        "peekOfCode": "class MainPageLocators:\n    \"\"\"Класс содержит локаторы применяемые на главной странице\"\"\"\n    LOCATOR_AUTH_PHONE_FIELD = (By.NAME, \"phone\")\n    LOCATOR_AUTH_PASS_FIELD = (By.NAME, \"password\")\n    LOCATOR_AUTH_FORM_BUTTON = (By.CLASS_NAME, \"full-width-button\")\n    LOCATOR_PRODUCT_FULL_NAME = (\n        By.XPATH,\n        \"/html/body/div[1]/div[8]/div[1]/div/h1/span\",\n    )\nclass MainPage(Base):",
         "detail": "pages.main_page",
         "documentation": {}
     },
@@ -259,7 +351,7 @@
         "kind": 6,
         "importPath": "pages.main_page",
         "description": "pages.main_page",
-        "peekOfCode": "class MainPage(Base):\n    \"\"\"Класс главной страницы\"\"\"\n    def __init__(self, driver):\n        super().__init__(driver)\n        self.header_component = HeaderComponent(driver)\n        self.main_component = MainComponent(driver)\n    # Геттеры\n    def get_auth_phone_field(self):\n        print(\"Получение локатора поля ввода Phone\")\n        return self.get_element(20, MainPageLocators.LOCATOR_AUTH_PHONE_FIELD)",
+        "peekOfCode": "class MainPage(Base):\n    \"\"\"Класс главной страницы\"\"\"\n    def __init__(self, driver):\n        super().__init__(driver)\n        # Создание компонентов страницы\n        self.header_component = HeaderComponent(driver)\n        self.main_component = MainComponent(driver)\n        self.cart_popup_component = CartPopupComponent(driver)\n    # Геттеры\n    def get_auth_phone_field(self):",
         "detail": "pages.main_page",
         "documentation": {}
     },
@@ -273,11 +365,65 @@
         "documentation": {}
     },
     {
+        "label": "test_open_main_page",
+        "kind": 2,
+        "importPath": "tests.test_main_page",
+        "description": "tests.test_main_page",
+        "peekOfCode": "def test_open_main_page(driver):\n    \"\"\"Тест на открытие главной страницы\"\"\"\n    mp = MainPage(driver)\n    # Переход на главную страницу\n    mp.go_to_base_url()\n    mp.assert_url(PageUrls.URL_BASE_PAGE)\ndef test_user_autentification(driver):\n    \"\"\"Тест аутентификации пользователя\"\"\"\n    mp = MainPage(driver)\n    # Переход на главную страницу",
+        "detail": "tests.test_main_page",
+        "documentation": {}
+    },
+    {
+        "label": "test_user_autentification",
+        "kind": 2,
+        "importPath": "tests.test_main_page",
+        "description": "tests.test_main_page",
+        "peekOfCode": "def test_user_autentification(driver):\n    \"\"\"Тест аутентификации пользователя\"\"\"\n    mp = MainPage(driver)\n    # Переход на главную страницу\n    mp.go_to_base_url()\n    # Аутентификация пользователя\n    mp.autentification()\ndef test_main_menu(driver):\n    \"\"\"Тест кнопки главного меню\"\"\"\n    mp = MainPage(driver)",
+        "detail": "tests.test_main_page",
+        "documentation": {}
+    },
+    {
+        "label": "test_main_menu",
+        "kind": 2,
+        "importPath": "tests.test_main_page",
+        "description": "tests.test_main_page",
+        "peekOfCode": "def test_main_menu(driver):\n    \"\"\"Тест кнопки главного меню\"\"\"\n    mp = MainPage(driver)\n    # Переход на главную страницу\n    mp.go_to_base_url()\n    # Переход на страницу главного меню\n    mp.go_to_main_menu()\ndef test_go_to_category_product(driver):\n    mp = MainPage(driver)\n    # Переход на главную страницу",
+        "detail": "tests.test_main_page",
+        "documentation": {}
+    },
+    {
+        "label": "test_go_to_category_product",
+        "kind": 2,
+        "importPath": "tests.test_main_page",
+        "description": "tests.test_main_page",
+        "peekOfCode": "def test_go_to_category_product(driver):\n    mp = MainPage(driver)\n    # Переход на главную страницу\n    mp.go_to_base_url()\n    # Аутентификация пользователя\n    mp.autentification()\n    # переход в категорию \"Одежда\"\n    mp.go_to_navbar_category(\"Одежда\")\ndef test_navbar(driver):\n    mp = MainPage(driver)",
+        "detail": "tests.test_main_page",
+        "documentation": {}
+    },
+    {
+        "label": "test_navbar",
+        "kind": 2,
+        "importPath": "tests.test_main_page",
+        "description": "tests.test_main_page",
+        "peekOfCode": "def test_navbar(driver):\n    mp = MainPage(driver)\n    # Переход на главную страницу\n    mp.go_to_base_url()\n    # Проверка навигационного бара\n    mp.check_navbar_links()",
+        "detail": "tests.test_main_page",
+        "documentation": {}
+    },
+    {
+        "label": "test_buy_product",
+        "kind": 2,
+        "importPath": "tests.test_smoke",
+        "description": "tests.test_smoke",
+        "peekOfCode": "def test_buy_product(driver):\n    mp = MainPage(driver)\n    # Переход на главную страницу\n    mp.go_to_base_url()\n    mp.assert_url(PageUrls.URL_BASE_PAGE)\n    # Аутентификация пользователя\n    mp.autentification()\n    mp.go_to_navbar_category(\"Одежда\")\n    time.sleep(5)\n    mp.assert_url(PageUrls.URL_ODEZHDA_PAGE)",
+        "detail": "tests.test_smoke",
+        "documentation": {}
+    },
+    {
         "label": "test_smoke",
         "kind": 2,
         "importPath": "tests.test_smoke",
         "description": "tests.test_smoke",
-        "peekOfCode": "def test_smoke(driver):\n    mp = MainPage(driver)\n    mp.go_to_base_url()\n    mp.go_to_navbar_category(\"Техника\")\n    time.sleep(2)\n    mp.assert_url(PageUrls.URL_TEHNIKA_CATEGORY_PAGE)\n    mp.select_category(\"Компьютеры\")\n    mp.assert_url(PageUrls.URL_COMPUTER_CATEGORY_PAGE)\n    mp.select_category(\"Ноутбуки и комплектующие\")\n    mp.assert_url(PageUrls.URL_NOTEBOOK_CATEGORY_PAGE)",
+        "peekOfCode": "def test_smoke(driver):\n    mp = MainPage(driver)\n    # Переход на главную страницу\n    mp.go_to_base_url()\n    mp.assert_url(PageUrls.URL_BASE_PAGE)\n    # переход в категорию \"Техника\"\n    mp.go_to_navbar_category(\"Техника\")\n    time.sleep(5)\n    mp.assert_url(PageUrls.URL_TEHNIKA_CATEGORY_PAGE)\n    # переход в категорию \"Компьютеры\"",
         "detail": "tests.test_smoke",
         "documentation": {}
     },

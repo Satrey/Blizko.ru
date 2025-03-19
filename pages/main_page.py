@@ -5,6 +5,7 @@ from base.base_class import Base
 from .page_urls import PageUrls
 from components.header import HeaderComponent
 from components.main import MainComponent
+from components.popup_cart import CartPopupComponent
 
 
 class MainPageLocators:
@@ -13,6 +14,10 @@ class MainPageLocators:
     LOCATOR_AUTH_PHONE_FIELD = (By.NAME, "phone")
     LOCATOR_AUTH_PASS_FIELD = (By.NAME, "password")
     LOCATOR_AUTH_FORM_BUTTON = (By.CLASS_NAME, "full-width-button")
+    LOCATOR_PRODUCT_FULL_NAME = (
+        By.XPATH,
+        "/html/body/div[1]/div[8]/div[1]/div/h1/span",
+    )
 
 
 class MainPage(Base):
@@ -21,8 +26,11 @@ class MainPage(Base):
     def __init__(self, driver):
         super().__init__(driver)
 
+        # Создание компонентов страницы
+
         self.header_component = HeaderComponent(driver)
         self.main_component = MainComponent(driver)
+        self.cart_popup_component = CartPopupComponent(driver)
 
     # Геттеры
 
@@ -103,3 +111,11 @@ class MainPage(Base):
 
     def go_to_cart(self):
         self.main_component.click_add_to_cart_button()
+        self.cart_popup_component.click_popup_cart_confirm_button()
+
+    def go_to_back(self):
+        self.main_component.click_add_to_cart_button()
+        self.cart_popup_component.click_popup_cart_back_button()
+
+    def go_to_confirm_by(self):
+        self.main_component.click_confirm_cart_button()

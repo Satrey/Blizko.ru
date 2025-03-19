@@ -9,12 +9,13 @@ class MainComponentLocators:
 
     LOCATOR_PRODUCTS_LIST = (By.CLASS_NAME, "centered-")
     LOCATOR_PRODUCT_ITEM = (By.CLASS_NAME, "gallery-product-item")
-    LOCATOR_MARKET_BUTTON = (By.XPATH, "//button[contains(text(),'Перейти в магазин')]")
+    # LOCATOR_MARKET_BUTTON
     LOCATOR_ADD_TO_CART_BUTTON = (
         By.XPATH,
-        "/html/body/div[1]/div[8]/div[2]/div[2]/div/div[2]/div/div/order-cart-control/button",
+        "/html/body/div[1]/div[8]/div[2]/div[2]/div/div[2]/div/div/div/div/button",
     )
     LOCATOR_GO_TO_CART_BUTTON = (By.LINK_TEXT, "Корзина")
+    LOCATOR_BUTTONS_PAGE = (By.TAG_NAME, "button")
 
 
 class MainComponent(Base):
@@ -52,13 +53,37 @@ class MainComponent(Base):
         print("Получение кнопки перехода в магазин с выбранным товаром")
         return self.get_element(20, MainComponentLocators.LOCATOR_MARKET_BUTTON)
 
-    def get_add_to_cart_button(self):
+    # def get_add_to_cart_button(self):
+    #     print("Получение кнопки добавления товара в корзину")
+    #     return self.get_element_button(
+    #         20, MainComponentLocators.LOCATOR_ADD_TO_CART_BUTTON
+    #     )
+
+    def get_product_page_button(self, button_text: str):
         print("Получение кнопки добавления товара в корзину")
-        return self.get_element(20, MainComponentLocators.LOCATOR_ADD_TO_CART_BUTTON)
+        buttons = self.get_buttons()
+        for button in buttons:
+            if button.text == button_text:
+                return button
+        return f"Элемент {button_text} не найден"
 
     def get_go_to_cart_button(self):
         print("Получение кнопки перехода в корзину")
-        return self.get_element(20, MainComponentLocators.LOCATOR_GO_TO_CART_BUTTON)
+        return self.get_element_button(
+            20, MainComponentLocators.LOCATOR_GO_TO_CART_BUTTON
+        )
+
+    def get_buttons(self):
+        print("Получение элементов панели кнопок")
+        return self.get_elements(20, MainComponentLocators.LOCATOR_BUTTONS_PAGE)
+
+    def get_cart_page_block_button(self, button_text: str):
+        print("Получение элементов панели кнопок, страницы корзины")
+        buttons = self.get_buttons()
+        for button in buttons:
+            if button.text == button_text:
+                return button
+        return f"Элемент {button_text} не найден"
 
     # Действия
 
@@ -74,9 +99,19 @@ class MainComponent(Base):
         print("Клик по кнопке перехода в магазин")
         self.get_market_button().click()
 
+    # def click_add_to_cart_button(self):
+    #     print("Клик по кнопке добавить товар в корзину")
+    #     self.get_add_to_cart_button()
+
     def click_add_to_cart_button(self):
         print("Клик по кнопке добавить товар в корзину")
-        self.get_add_to_cart_button().click()
+        button = self.get_product_page_button("Добавить в корзину")
+        button.click()
+
+    def click_confirm_cart_button(self):
+        print("Клик по кнопке 'Перейти к оформлению'")
+        button = self.get_cart_page_block_button("Перейти к оформлению")
+        button.click()
 
     def click_go_to_cart_button(self):
         print("Клик по кнопке перейти в корзину")
