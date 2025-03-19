@@ -324,7 +324,7 @@
         "kind": 6,
         "importPath": "pages.cart_page",
         "description": "pages.cart_page",
-        "peekOfCode": "class CartPageLocators:\n    \"\"\"Класс содержит локаторы которые используются на странице корзины\"\"\"\n    pass\nclass CartPage(Base):\n    \"\"\"Класс описывает страницу корзины покупателя\"\"\"\n    pass",
+        "peekOfCode": "class CartPageLocators:\n    \"\"\"Класс содержит локаторы которые используются на странице ояормления заказа\"\"\"\n    pass\nclass CartPage(Base):\n    \"\"\"Класс описывает страницу офрмления заказа\"\"\"\n    pass",
         "detail": "pages.cart_page",
         "documentation": {}
     },
@@ -333,7 +333,7 @@
         "kind": 6,
         "importPath": "pages.cart_page",
         "description": "pages.cart_page",
-        "peekOfCode": "class CartPage(Base):\n    \"\"\"Класс описывает страницу корзины покупателя\"\"\"\n    pass",
+        "peekOfCode": "class CartPage(Base):\n    \"\"\"Класс описывает страницу офрмления заказа\"\"\"\n    pass",
         "detail": "pages.cart_page",
         "documentation": {}
     },
