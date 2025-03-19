@@ -279,7 +279,7 @@
         "kind": 6,
         "importPath": "components.main",
         "description": "components.main",
-        "peekOfCode": "class MainComponent(Base):\n    \"\"\"Класс основного компанента страницы\"\"\"\n    # Геттеры\n    def get_products_category_list(self):\n        print(\"Получение списка категорий товаров в главной секции страницы\")\n        elements = self.get_elements(20, MainComponentLocators.LOCATOR_PRODUCTS_LIST)\n        return elements\n    def get_category(self, category):\n        print(f\"Выбор категории {category} из списка категорий главной страницы\")\n        categories = self.get_products_category_list()",
+        "peekOfCode": "class MainComponent(Base):\n    \"\"\"Класс основного компанента страницы\"\"\"\n    # Геттеры\n    def get_products_category_list(self):\n        \"\"\"Получение списка доступных категорий товаров\"\"\"\n        print(\"Получение списка категорий товаров в главной секции страницы\")\n        elements = self.get_elements(20, MainComponentLocators.LOCATOR_PRODUCTS_LIST)\n        return elements\n    def get_category(self, category):\n        \"\"\"Получение заданной категории товаров\"\"\"",
         "detail": "components.main",
         "documentation": {}
     },
@@ -297,7 +297,7 @@
         "kind": 6,
         "importPath": "components.popup_cart",
         "description": "components.popup_cart",
-        "peekOfCode": "class CartPopupComponent(Base):\n    \"\"\"Класс всплывающего окна корзины\"\"\"\n    # Геттеры\n    def get_popup_cart_confirm_button(self):\n        print(\"Получение кнопки подтверждения заказа\")\n        return self.get_element(\n            30, CartPopupComponentLocators.LOCATOR_POPUP_CART_CONFIRM_BUTTON\n        )\n    def get_popup_cart_back_button(self):\n        print(\"Получение кнопки возврата в магазин\")",
+        "peekOfCode": "class CartPopupComponent(Base):\n    \"\"\"Класс всплывающего окна корзины\"\"\"\n    # Геттеры\n    def get_popup_cart_confirm_button(self):\n        \"\"\"Получение кнопки для подтверждения заказа в магазиине\"\"\"\n        print(\"Получение кнопки подтверждения заказа\")\n        return self.get_element(\n            30, CartPopupComponentLocators.LOCATOR_POPUP_CART_CONFIRM_BUTTON\n        )\n    def get_popup_cart_back_button(self):",
         "detail": "components.popup_cart",
         "documentation": {}
     },
@@ -387,7 +387,7 @@
         "kind": 2,
         "importPath": "tests.test_main_page",
         "description": "tests.test_main_page",
-        "peekOfCode": "def test_main_menu(driver):\n    \"\"\"Тест кнопки главного меню\"\"\"\n    mp = MainPage(driver)\n    # Переход на главную страницу\n    mp.go_to_base_url()\n    # Переход на страницу главного меню\n    mp.go_to_main_menu()\ndef test_go_to_category_product(driver):\n    mp = MainPage(driver)\n    # Переход на главную страницу",
+        "peekOfCode": "def test_main_menu(driver):\n    \"\"\"Тест кнопки главного меню\"\"\"\n    mp = MainPage(driver)\n    # Переход на главную страницу\n    mp.go_to_base_url()\n    # Переход на страницу главного меню\n    mp.go_to_main_menu()\ndef test_go_to_category_product(driver):\n    \"\"\"Тест перехода в категорию навигационного меню\"\"\"\n    mp = MainPage(driver)",
         "detail": "tests.test_main_page",
         "documentation": {}
     },
@@ -396,7 +396,7 @@
         "kind": 2,
         "importPath": "tests.test_main_page",
         "description": "tests.test_main_page",
-        "peekOfCode": "def test_go_to_category_product(driver):\n    mp = MainPage(driver)\n    # Переход на главную страницу\n    mp.go_to_base_url()\n    # Аутентификация пользователя\n    mp.autentification()\n    # переход в категорию \"Одежда\"\n    mp.go_to_navbar_category(\"Одежда\")\ndef test_navbar(driver):\n    mp = MainPage(driver)",
+        "peekOfCode": "def test_go_to_category_product(driver):\n    \"\"\"Тест перехода в категорию навигационного меню\"\"\"\n    mp = MainPage(driver)\n    # Переход на главную страницу\n    mp.go_to_base_url()\n    # Аутентификация пользователя\n    mp.autentification()\n    # переход в категорию \"Одежда\"\n    mp.go_to_navbar_category(\"Одежда\")\ndef test_navbar(driver):",
         "detail": "tests.test_main_page",
         "documentation": {}
     },
@@ -405,7 +405,7 @@
         "kind": 2,
         "importPath": "tests.test_main_page",
         "description": "tests.test_main_page",
-        "peekOfCode": "def test_navbar(driver):\n    mp = MainPage(driver)\n    # Переход на главную страницу\n    mp.go_to_base_url()\n    # Проверка навигационного бара\n    mp.check_navbar_links()",
+        "peekOfCode": "def test_navbar(driver):\n    \"\"\"Тест навигационного меню главной страницы\"\"\"\n    mp = MainPage(driver)\n    # Переход на главную страницу\n    mp.go_to_base_url()\n    # Проверка навигационного бара\n    mp.check_navbar_links()",
         "detail": "tests.test_main_page",
         "documentation": {}
     },
@@ -414,7 +414,7 @@
         "kind": 2,
         "importPath": "tests.test_smoke",
         "description": "tests.test_smoke",
-        "peekOfCode": "def test_buy_product(driver):\n    mp = MainPage(driver)\n    # Переход на главную страницу\n    mp.go_to_base_url()\n    mp.assert_url(PageUrls.URL_BASE_PAGE)\n    # Аутентификация пользователя\n    mp.autentification()\n    mp.go_to_navbar_category(\"Одежда\")\n    time.sleep(5)\n    mp.assert_url(PageUrls.URL_ODEZHDA_PAGE)",
+        "peekOfCode": "def test_buy_product(driver):\n    mp = MainPage(driver)\n    # Переход на главную страницу\n    mp.go_to_base_url()\n    mp.assert_url(PageUrls.URL_BASE_PAGE)\n    # Аутентификация пользователя\n    mp.autentification()\n    # переход в категорию \"Одежда\"\n    mp.go_to_navbar_category(\"Одежда\")\n    time.sleep(5)",
         "detail": "tests.test_smoke",
         "documentation": {}
     },

@@ -23,12 +23,14 @@ class CartPopupComponent(Base):
     # Геттеры
 
     def get_popup_cart_confirm_button(self):
+        """Получение кнопки для подтверждения заказа в магазиине"""
         print("Получение кнопки подтверждения заказа")
         return self.get_element(
             30, CartPopupComponentLocators.LOCATOR_POPUP_CART_CONFIRM_BUTTON
         )
 
     def get_popup_cart_back_button(self):
+        """Получение кнопки для возврата кпокупкам в магазиине"""
         print("Получение кнопки возврата в магазин")
         return self.get_element(
             30, CartPopupComponentLocators.LOCATOR_POPUP_CART_BACK_BUTTON
@@ -37,9 +39,11 @@ class CartPopupComponent(Base):
     # Действия
 
     def click_popup_cart_confirm_button(self):
+        """Клик по кнопке подтверждения заказа всплывающего окна"""
         self.get_popup_cart_confirm_button().click()
         print("Клик по кнопке подтверждения заказа")
 
     def click_popup_cart_back_button(self):
+        """Клик по кнопке возврата в магазин, всплывающего окна"""
         self.get_popup_cart_back_button().click()
         print("Клик по кнопке возвратав магазин")

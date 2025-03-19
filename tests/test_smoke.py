@@ -11,6 +11,7 @@ def test_buy_product(driver):
     mp.assert_url(PageUrls.URL_BASE_PAGE)
     # Аутентификация пользователя
     mp.autentification()
+    # переход в категорию "Одежда"
     mp.go_to_navbar_category("Одежда")
     time.sleep(5)
     mp.assert_url(PageUrls.URL_ODEZHDA_PAGE)

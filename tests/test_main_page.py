@@ -29,6 +29,7 @@ def test_main_menu(driver):
 
 
 def test_go_to_category_product(driver):
+    """Тест перехода в категорию навигационного меню"""
     mp = MainPage(driver)
     # Переход на главную страницу
     mp.go_to_base_url()
@@ -39,6 +40,7 @@ def test_go_to_category_product(driver):
 
 
 def test_navbar(driver):
+    """Тест навигационного меню главной страницы"""
     mp = MainPage(driver)
     # Переход на главную страницу
     mp.go_to_base_url()
